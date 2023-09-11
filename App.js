@@ -17,20 +17,22 @@ import ListingScreen from "./app/screens/ListingScreen";
 import { useState } from "react";
 import AppTextInput from "./app/components/AppTextInput";
 import AppNativePicker from "./app/components/AppNativePicker";
+import LoginScreen from "./app/screens/LoginScreen";
 
-const selectOptions = [
-  { label: "Programming Skills", value: "" },
-  { label: "System Design", value: "system_design" },
-  { label: "Database Design", value: "database_design" },
-  { label: "React", value: "react" },
-  { label: "React Native", value: "react_native" },
-  { label: "Rust", value: "rust" },
-  { label: "Mathematics", value: "mathematics" },
-];
-export default function App() {
-  return (
-    <Screen>
+// const selectOptions = [
+//   { label: "Programming Skills", value: "" },
+//   { label: "System Design", value: "system_design" },
+//   { label: "Database Design", value: "database_design" },
+//   { label: "React", value: "react" },
+//   { label: "React Native", value: "react_native" },
+//   { label: "Rust", value: "rust" },
+//   { label: "Mathematics", value: "mathematics" },
+// ];
+{
+  /* <Screen>
       <AppNativePicker selectOptions={selectOptions} />
-    </Screen>
-  );
+    </Screen> */
+}
+export default function App() {
+  return <LoginScreen />;
 }
