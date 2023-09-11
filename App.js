@@ -35,5 +35,5 @@ import ListingEditScreen from "./app/screens/ListingEditScreen";
     </Screen> */
 }
 export default function App() {
-  return <MessagesScreen />;
+  return <ListingEditScreen />;
 }
