@@ -2,10 +2,10 @@ import React from "react";
 import { Pressable, StyleSheet } from "react-native";
 import AppText from "./AppText";
 
-function PickerItem({ label, onPress }) {
+function PickerItem({ item, onPress }) {
   return (
     <Pressable onPress={onPress}>
-      <AppText style={styles.text}>{label}</AppText>
+      <AppText style={styles.text}>{item.label}</AppText>
     </Pressable>
   );
 }
