@@ -18,6 +18,7 @@ import { useState } from "react";
 import AppTextInput from "./app/components/AppTextInput";
 import AppNativePicker from "./app/components/AppNativePicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 // const selectOptions = [
 //   { label: "Programming Skills", value: "" },
@@ -34,5 +35,5 @@ import LoginScreen from "./app/screens/LoginScreen";
     </Screen> */
 }
 export default function App() {
-  return <LoginScreen />;
+  return <ListingEditScreen />;
 }
