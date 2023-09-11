@@ -1,11 +1,9 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
-import { Formik } from "formik";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
-import AppFormField from "../components/AppFormField";
-import SubmitButton from "../components/SubmitButton";
+import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 
 const ValidationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -16,35 +14,31 @@ function LoginScreen(props) {
   return (
     <Screen style={styles.constainer}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-      <Formik
+      <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={ValidationSchema}
       >
-        {() => (
-          <>
-            <AppFormField
-              name="email"
-              icon="email"
-              placeholder="email"
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="email-address"
-              textContentType="emailAddress"
-            />
-            <AppFormField
-              name="password"
-              icon="lock"
-              placeholder="password"
-              autoCapitalize="none"
-              autoCorrect={false}
-              textContentType="password"
-              secureTextEntry
-            />
-            <SubmitButton title="Log In" />
-          </>
-        )}
-      </Formik>
+        <AppFormField
+          name="email"
+          icon="email"
+          placeholder="email"
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType="email-address"
+          textContentType="emailAddress"
+        />
+        <AppFormField
+          name="password"
+          icon="lock"
+          placeholder="password"
+          autoCapitalize="none"
+          autoCorrect={false}
+          textContentType="password"
+          secureTextEntry
+        />
+        <SubmitButton title="Log In" />
+      </AppForm>
     </Screen>
   );
 }
