@@ -5,7 +5,7 @@ import {
   Modal,
   Button,
   FlatList,
-  Pressable,
+  TouchableWithoutFeedback,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -28,7 +28,7 @@ function AppPicker({
 
   return (
     <>
-      <Pressable onPress={() => setModalVisible(true)}>
+      <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
@@ -50,7 +50,7 @@ function AppPicker({
             color={defaultStyles.colors.medium}
           />
         </View>
-      </Pressable>
+      </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
           <Button title="Close" onPress={() => setModalVisible(false)} />
