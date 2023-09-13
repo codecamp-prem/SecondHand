@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
+import ActivityIndicator from "../components/ActivityIndicator";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 import colors from "../config/colors";
@@ -12,9 +13,13 @@ import listingsApi from "../api/listings";
 function ListingScreen({ navigation }) {
   const [error, setError] = useState(false);
   const [listings, setListings] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const loadListings = async () => {
+    setLoading(true);
     const response = await listingsApi.getListings();
+    setLoading(false);
+
     if (!response.ok) return setError(true);
 
     setError(false);
@@ -32,6 +37,7 @@ function ListingScreen({ navigation }) {
           <AppButton title="Refresh" onPress={loadListings} />
         </>
       )}
+      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
